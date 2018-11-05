@@ -7,19 +7,52 @@ const db = pgp({
 
 // Writing a SQL query in JS
 // grabs all the rows 
-db.any('select * from todos')
-  .then(results => {
-    console.log(results);
-  });
+function getAll() {
+  return db.any('select * from todos')
+}
+
+// getAll()
+// .then(results => {
+// console.log(results);
+// });
 
 // grab one row
-db.one('select * from todos where id=5')
-  .then(result => {
-    console.log(result);
-  })
+function getById(id) {
+  return db.one(`select * from todos where id=$1`,
+    [id])
+    .catch(err => {
+      return {
+        name: `No todo found`
+      }
+    });
+}
 
-// adds a row
+// getById(4)
+//   .then(result => {
+//     console.log(result);
+//   });
+
+//  adds a row
+function addRow(name, completed) {
+  return db.one(`insert into todos (name, completed) 
+    values 
+      ($1, $2)
+    returning id`,
+    [name, completed])
+
+}
+
+// addRow('clean windows', true)
+//   .then(result => {
+//     console.log(result);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
 
 // update a row
 
 // delete a row
+function remove() {
+
+}
