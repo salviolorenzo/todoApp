@@ -11,11 +11,6 @@ function getAll() {
   return db.any('select * from todos')
 }
 
-// getAll()
-// .then(results => {
-// console.log(results);
-// });
-
 // grab one row
 function getById(id) {
   return db.one(`select * from todos where id=$1`,
@@ -27,11 +22,6 @@ function getById(id) {
     });
 }
 
-// getById(4)
-//   .then(result => {
-//     console.log(result);
-//   });
-
 //  adds a row
 function addRow(name, completed) {
   return db.one(`insert into todos (name, completed) 
@@ -42,6 +32,42 @@ function addRow(name, completed) {
 
 }
 
+// delete a row
+function deleteById(id) {
+  return db.result(`delete from todos where id = $1`, [id])
+}
+
+// update a row
+function updateCompleted(id) {
+  return db.result(`update todos set completed=true where id= $1`, [id])
+}
+
+function updateName(id, name) {
+  return db.result(`update todos set name=$1 where id =$2`, [name, id])
+}
+
+// updateCompleted(1)
+// .then(result => {
+// console.log(result);
+// });
+// 
+// updateName(4, '')
+// .then(result => {
+// console.log(result);
+// });
+
+// getAll()
+// .then(results => {
+// console.log(results);
+// });
+
+
+// getById(4)
+//   .then(result => {
+//     console.log(result);
+//   });
+
+
 // addRow('clean windows', true)
 //   .then(result => {
 //     console.log(result);
@@ -50,14 +76,9 @@ function addRow(name, completed) {
 //     console.log(err);
 //   })
 
-// update a row
 
-// delete a row
-function deleteById(id) {
-  return db.result(`delete from todos where id = $1`, [id])
-}
 
-deleteById(11)
+deleteById(15)
   .then(result => {
     console.log(result.rowCount);
   })
