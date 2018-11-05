@@ -53,6 +53,11 @@ function addRow(name, completed) {
 // update a row
 
 // delete a row
-function remove() {
-
+function deleteById(id) {
+  return db.result(`delete from todos where id = $1`, [id])
 }
+
+deleteById(11)
+  .then(result => {
+    console.log(result.rowCount);
+  })
