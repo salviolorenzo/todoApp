@@ -1,27 +1,30 @@
 
-// updateCompleted(1)
+// brings in all the functions in one object
+const Todo = require('./models/Todo');
+
+// Todo.updateCompleted(1)
 //   .then(result => {
 //     console.log(result);
 //   });
 
-// updateName(4, '')
+// Todo.updateName(4, '')
 //   .then(result => {
 //     console.log(result);
 //   });
 
-// getAll()
+// Todo.getAll()
 // .then(results => {
 // console.log(results);
 // });
 
 
-// getById(4)
+// Todo.getById(4)
 //   .then(result => {
 //     console.log(result);
 //   });
 
 
-// addRow('clean windows', true)
+// Todo.addRow('clean windows', true)
 //   .then(result => {
 //     console.log(result);
 //   })
@@ -31,7 +34,7 @@
 
 
 
-// deleteById(15)
+// Todo.deleteById(15)
   // .then(result => {
     // console.log(result.rowCount);
   // })
