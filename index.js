@@ -4,10 +4,10 @@ require('dotenv').config();
 // brings in all the functions in one object
 const Todo = require('./models/Todo');
 
-// Todo.updateCompleted(1)
-//   .then(result => {
-//     console.log(result);
-//   });
+Todo.updateCompleted(1)
+  .then(result => {
+    console.log(result);
+  });
 
 // Todo.updateName(4, '')
 //   .then(result => {
