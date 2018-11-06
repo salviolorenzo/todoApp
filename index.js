@@ -1,3 +1,5 @@
+// Access info from .env
+require('dotenv').config();
 
 // brings in all the functions in one object
 const Todo = require('./models/Todo');
